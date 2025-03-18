@@ -1,0 +1,177 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+}
+
+#gameArea {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, #ffecd2, #fcb69f);
+    overflow: hidden;
+}
+
+#basket {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 40px;
+    background-color: #ff6b6b;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s;
+    z-index: 10;
+}
+
+#basket:hover {
+    background-color: #ff4c4c;
+}
+
+.heart {
+    position: absolute;
+    font-size: 32px;
+    cursor: pointer;
+    color: #ff4d6d;
+    animation: float 5s infinite;
+    z-index: 5;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+#scoreBoard {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 22px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 15;
+}
+
+#apologyPopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff5f5; /* Soft pink background */
+    padding: 30px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.3); /* Pink shadow */
+    display: none;
+    text-align: center;
+    z-index: 20;
+    animation: pop 0.5s forwards;
+    
+}
+
+#apologyPopup audio {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+@keyframes pop {
+    0% { transform: translate(-50%, -50%) scale(0); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* General Responsive Adjustments */
+@media (max-width: 768px) {
+    /* Adjust game area for smaller screens */
+    #gameArea {
+        height: 90vh; /* Reduce height to accommodate smaller screens */
+    }
+
+    /* Make the basket smaller */
+    #basket {
+        width: 80px;
+        height: 30px;
+    }
+
+    /* Adjust heart size */
+    .heart {
+        font-size: 24px;
+    }
+
+    /* Scoreboard adjustments */
+    #scoreBoard {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+
+    /* Apology Popup adjustments */
+    #apologyPopup {
+        width: 90%; /* Make the popup wider on small screens */
+        padding: 20px;
+    }
+
+    #apologyPopup h1 {
+        font-size: 24px; /* Smaller heading for mobile */
+    }
+
+    #apologyPopup p {
+        font-size: 14px; /* Smaller text for mobile */
+        line-height: 1.5;
+    }
+
+    #apologyPopup p:last-child {
+        font-size: 12px; /* Smaller text for the last paragraph */
+    }
+
+    /* Audio player adjustments */
+    #apologyPopup audio {
+        width: 90%; /* Make the audio player slightly smaller */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for very small screens */
+    #basket {
+        width: 60px;
+        height: 20px;
+    }
+
+    .heart {
+        font-size: 20px;
+    }
+
+    #scoreBoard {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+    #apologyPopup {
+        width: 95%; /* Make the popup almost full width */
+        padding: 15px;
+    }
+
+    #apologyPopup h1 {
+        font-size: 20px;
+    }
+
+    #apologyPopup p {
+        font-size: 12px;
+    }
+
+    #apologyPopup p:last-child {
+        font-size: 10px;
+    }
+}
